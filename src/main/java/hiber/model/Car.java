@@ -1,4 +1,3 @@
-/*
 package hiber.model;
 
 import hiber.model.User;
@@ -7,7 +6,7 @@ import javax.imageio.spi.ServiceRegistry;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "car")
+@Table(name = "cars")
 public class Car {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,7 +19,7 @@ public class Car {
     @Column(name = "series")
     private  int series;
     @OneToOne(cascade = CascadeType.ALL
-            ,mappedBy = "userCars")
+            ,mappedBy = "car")
     private User user;
 
     public Car() {
@@ -63,13 +62,8 @@ public class Car {
         this.series = series;
     }
 
-    @Override
-    public String toString() {
-        return "Car{" +
-                "id=" + id +
-                ", model='" + model + '\'' +
-                ", series=" + series +
-                '}';
-    }
+  @Override
+    public String toString(){
+        return getModel() + "\\" + getSeries();
+  }
 }
-*/
